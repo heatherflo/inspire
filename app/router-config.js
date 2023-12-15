@@ -1,6 +1,7 @@
 import { AccountController } from "./controllers/AccountController.js";
-import { BackgroundImg } from "./controllers/BackgroundImg.js";
+import { BackgroundImgController } from "./controllers/BackgroundImgController.js";
 import { HomeController } from "./controllers/HomeController.js";
+import { QuotesController } from "./controllers/QuotesController.js";
 import { WeatherController } from "./controllers/WeatherController.js";
 import { AuthGuard } from "./services/AuthService.js";
 import { Router } from "./utils/Router.js";
@@ -9,7 +10,7 @@ import { Router } from "./utils/Router.js";
 export const router = new Router([
   {
     path: '',
-    controllers: [WeatherController, BackgroundImg],
+    controllers: [WeatherController, BackgroundImgController, QuotesController],
     view: `app/views/HomeView.html`
   },
   {

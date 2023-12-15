@@ -7,6 +7,9 @@ import { api } from "./AxiosService.js"
 
 
 class BackgroundImgService {
+
+
+
   async getImage() {
     const response = await api.get(`api/images`)
     console.log('getting images', '🌆')

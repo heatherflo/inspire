@@ -1,7 +1,7 @@
 import { AppState } from "../AppState.js"
 import { Image } from "../models/BackgroundImg.js"
 import { api } from "../services/AxiosService.js"
-import { backgroundImgService } from "../services/BackgroundImg.js"
+import { backgroundImgService } from "../services/BackgroundImgService.js"
 import { Pop } from "../utils/Pop.js"
 
 
@@ -12,7 +12,7 @@ function _drawImg() {
 
 }
 
-export class BackgroundImg {
+export class BackgroundImgController {
   constructor() {
     console.log('bg-img')
     this.getBackgroundImg()
