@@ -15,11 +15,16 @@ function _drawWeather() {
 
 
 
+
+
+
+
 export class WeatherController {
   constructor() {
     console.log('getting started')
     this.getWeather()
     AppState.on('weather', _drawWeather)
+
   }
 
 
