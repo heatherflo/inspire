@@ -1,9 +1,48 @@
 <div class="container-fluid">
 
   <section class="row">
-    <div class="col-4  card" id="draw-weather"></div>
+
+    <!-- --draws weather station-- -->
+    <div class="col-4 card" id="draw-weather"></div>
+
+    <!-- draws quotes to page-->
     <div class="col-4 card" id="draw-quotes"></div>
+
+    <!-- draws date to page-->
     <div class="card col-4" id="date"></div>
+
+    <!-- draws to-do form to page-->
+    <div class="col-4 card">
+
+      <form onsubmit="">
+        <h3 class="text-center">List your ToDos</h3>
+        <div class="d-flex justify-content-between">
+          <span>
+            <label>What do you need to get done today?</label>
+            <input required class="form-control" type="text" maxlength="500" name="ToDo">
+          </span>
+          <span>
+            <button class="btn btn-dark text-light">💾</button>
+          </span>
+        </div>
+
+      </form>
+      <div class="d-flex justify-items-between" id="ToDos-list">
+        <!--active list of ToDos-->
+        <form onsubmit="">
+          <input class="form-check-input" type="checkbox" value="mark done" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            List Item 1
+            <button class="btn btn-warning text-light">🗑️</button>
+
+          </label>
+        </form>
+
+      </div>
+
+
+    </div>
+
 
   </section>
 
