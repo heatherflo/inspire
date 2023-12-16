@@ -5,14 +5,14 @@ export class DateController {
   constructor() {
     console.log('📆', 'newDate')
     this.drawTime()
+    setInterval(this.drawTime, 60000)
   }
 
   drawTime() {
     console.log('draw Time')
     let content = new Date()
     document.getElementById('date').innerHTML = content.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' })
-    console.log('new date', content)
-
+    // console.log('new date', content)
   }
 
 

@@ -42,5 +42,6 @@ export class WeatherController {
     newTemp.tempSwitch = !newTemp.tempSwitch
     console.log(newTemp)
 
+
   }
 }
