@@ -5,7 +5,7 @@ export class DateController {
   constructor() {
     console.log('📆', 'newDate')
     this.drawTime()
-    setInterval(this.drawTime, 60000)
+    setInterval(this.drawTime, 30000)
   }
 
   drawTime() {

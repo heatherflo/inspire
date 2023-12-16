@@ -14,11 +14,11 @@
     <!-- draws to-do form to page-->
     <div class="col-4 card">
 
-      <form onsubmit="">
+      <form onsubmit="app.ToDosController.createToDo()" class="" id="createToDo">
         <h3 class="text-center">List your ToDos</h3>
         <div class="d-flex justify-content-between">
           <span>
-            <label>What do you need to get done today?</label>
+            <label></label>
             <input required class="form-control" type="text" maxlength="500" name="ToDo">
           </span>
           <span>
@@ -28,7 +28,9 @@
 
       </form>
       <div class="d-flex justify-items-between" id="ToDos-list">
-        <!--active list of ToDos-->
+
+
+        <!-- active list of ToDos-->
         <form onsubmit="">
           <input class="form-check-input" type="checkbox" value="mark done" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">

@@ -9,8 +9,10 @@ export class ToDo {
     this.checked = data.checked //if checked then marked as done and will disappear? or if checked then delete button pops up?
   }
 
+  getActiveListTemplate() {
+    ``
+  }
 }
-
 
 // completed: Boolean, required
 // description: String, required
