@@ -15,9 +15,9 @@ function _showCreateToDoForm() {
 export class ToDosController {
   constructor() {
     console.log('✅ to-dos')
-    _showCreateToDoForm()
+    AppState.on('toDo', _showCreateToDoForm)
     AppState.on('toDo', this.createToDo)
-
+    _showCreateToDoForm()
 
 
 

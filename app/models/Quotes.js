@@ -11,7 +11,15 @@ export class Quotes {
 
 
   getQuoteTemplate() {
-    return `${this.content}${this.author}`
+    return `
+    
+    <div class="hover-parent">
+    <h1 class="col-12 ">${this.content}</h1>
+    <h2 class="col-12 hover-child">${this.author}</h2>
+    
+    </div>
+
+  `
   }
 }
 
