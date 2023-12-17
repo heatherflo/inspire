@@ -6,7 +6,7 @@ class ToDosService {
 
   async createToDos(formData) {
     const response = await api.post(`api/todos`, formData)
-    console.log('saved toDo', response) //not working 
+    console.log('saved toDo', response.data) //not working 
   }
 
 

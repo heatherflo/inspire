@@ -18,10 +18,10 @@ export class ToDosController {
     AppState.on('toDo', _showCreateToDoForm)
     AppState.on('toDo', this.createToDo)
     _showCreateToDoForm()
+    AppState.on('user', _drawList)
 
 
 
-    // AppState.on('user', _drawList)
   }
 
 
@@ -35,6 +35,7 @@ export class ToDosController {
       const formData = getFormData(form)
       console.log('in the form', formData) //this works- the ToDo value pops up in the console
       await toDoService.createToDos(formData)
+      // @ts-ignore
       form.reset()
     } catch (error) {
       console.error(error)
