@@ -14,8 +14,8 @@ export class Weather {
 
   get drawWeatherTemplate() {
     return `
-    <div type="button" onclick="app.WeatherController.changeTemp()" >
-    ${this.tempSwitch ? this.FTemp : this.CTemp}
+    <div class="p-3" type="button" onclick="app.WeatherController.changeTemp()" >
+    ${this.tempSwitch ? `Boise Today: ${this.FTemp}F` : `Boise Today: ${this.CTemp}C`}
     </div>`
   }
 

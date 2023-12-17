@@ -1,52 +1,72 @@
 <div class="container-fluid">
 
-  <section class="row">
+  <!-- --draws weather station-- -->
+  <!-- draws date to page-->
+  <section class="row justify-content-between p-3">
+    <div class=" col-2 bg-card text-center text-light p-3" id="date"></div>
 
-    <!-- --draws weather station-- -->
-    <div class="col-4 card" id="draw-weather"></div>
+    <div class="col-2 bg-card text-center text-light" id="draw-weather"></div>
 
-    <!-- draws quotes to page-->
-    <div class="col-4 card" id="draw-quotes"></div>
+  </section>
 
-    <!-- draws date to page-->
-    <div class="card col-4" id="date"></div>
+
+  <!-- draws quotes to page-->
+  <section class="row justify-content-center p-3">
+
+    <div class="col-10 text-center p-3 " id="draw-quotes"></div>
+
+  </section>
+
+  <section class="row justify-content-center p-3">
+
 
     <!-- draws to-do form to page-->
-    <div class="col-4 card">
+
+    <div class="col-10 d-flex text-center p-3 text-light d-none bg-card">
 
       <form onsubmit="app.ToDosController.createToDo()" class="" id="createToDo">
         <h3 class="text-center">List your ToDos</h3>
         <div class="d-flex justify-content-between">
-          <span>
-            <label></label>
-            <input required class="form-control" type="text" maxlength="500" name="description">
-          </span>
-          <span>
-            <button class="btn btn-dark text-light">💾</button>
-          </span>
+
+          <label></label>
+          <input required class="form-control" type="text" maxlength="500" name="description">
+
+
+          <button class="btn btn-dark text-light">💾</button>
+
         </div>
 
       </form>
-      <div class="d-flex justify-items-between" id="ToDos-list">
+      <!--check box-->
+      <div class=" col-6 d-flex justify-content-between" id="updateToDo">
 
+        <!--active list of todos-->
+        <div>
 
-        <!-- active list of ToDos-->
-        <form onsubmit="">
-          <input class="form-check-input" type="checkbox" value="mark done" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            List Item 1
-            <button class="btn btn-warning text-light">🗑️</button>
+          <form onsubmit="" class="p-3" id="draw-list">
+            <!-- List Todo here
+            <input class="form-check-input" type="checkbox" name="checked">
+            <label class="form-check-label" for="checkbox"></label>
+          </form> -->
 
-          </label>
-        </form>
+        </div>
+
 
       </div>
-
-
-    </div>
-
-
   </section>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+
+
+
+
 
 
 </div>

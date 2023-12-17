@@ -5,6 +5,22 @@ body {
   background-repeat: no-repeat;
 }
 
+.bg-card {
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(39, 37, 37, 0.785);
+  opacity: 100;
+  background-color: rgba(27, 25, 25, 0.809);
+  ;
+}
+
+.quote {
+  font-size: 12px;
+  color: white;
+  font-family: monospace;
+}
+
 .hover-parent .hover-child {
   opacity: 0;
   transition: opacity .5s linear;

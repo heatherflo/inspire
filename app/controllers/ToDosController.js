@@ -10,19 +10,28 @@ import { Pop } from "../utils/Pop.js"
 function _showCreateToDoForm() {
   let form = document.getElementById('createToDo')
   console.log('showing the create ToDo Form') //this works
+
+}
+function _drawList() {
+  console.log('🔖drawing list')
+  const newToDos = AppState.toDo
+  console.log('newToDo', newToDos)
+  let content = newToDos.drawListTemplate
+  document.getElementById('draw-list').innerHTML = content
+  console.log('list of todos', content)
 }
 
 export class ToDosController {
   constructor() {
     console.log('✅ to-dos')
-    AppState.on('toDo', _showCreateToDoForm)
+    AppState.on('user', _showCreateToDoForm)
     AppState.on('toDo', this.createToDo)
     _showCreateToDoForm()
-    AppState.on('user', _drawList)
-
+    // AppState.on('', _drawList)
 
 
   }
+
 
 
 
@@ -37,11 +46,24 @@ export class ToDosController {
       await toDoService.createToDos(formData)
       // @ts-ignore
       form.reset()
+      // _drawList()
     } catch (error) {
       console.error(error)
       Pop.error(error)
     }
 
   }
-}
 
+  async updateTodo() {
+    try {
+      event.preventDefault()
+      const form = event.target
+      const FormData = getFormData(form)
+      await toDoService.updateToDo()
+
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
+}
