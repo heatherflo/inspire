@@ -22,14 +22,14 @@
 
     <!-- draws to-do form to page-->
 
-    <div class="col-10 d-flex text-center p-3 text-light d-none bg-card">
+    <div class="col-10 d-flex p-3 text-light bg-card">
 
       <form onsubmit="app.ToDosController.createToDo()" class="" id="createToDo">
-        <h3 class="text-center">List your ToDos</h3>
+        <h3 class="">List your ToDos</h3>
         <div class="d-flex justify-content-between">
 
           <label></label>
-          <input required class="form-control" type="text" maxlength="500" name="description">
+          <input required class="form-control" type="text" maxlength="500" name="ToDo">
 
 
           <button class="btn btn-dark text-light">💾</button>
@@ -39,7 +39,10 @@
       </form>
       <!--check box-->
       <div class=" col-6 d-flex justify-content-between" id="updateToDo">
-
+        List Item
+        <input class="form-check-input" type="checkbox" name="checked">
+        <label class="form-check-label" for="checkbox"></label>
+        </form>
         <!--active list of todos-->
         <div>
 

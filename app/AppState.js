@@ -21,8 +21,7 @@ class ObservableAppState extends EventEmitter {
   quotes = null
 
   /**@type {ToDo} */
-
-  toDo = null
+  activeToDo = null
 
 
 

@@ -7,63 +7,36 @@ import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 
 
-function _showCreateToDoForm() {
-  let form = document.getElementById('createToDo')
-  console.log('showing the create ToDo Form') //this works
-
-}
-function _drawList() {
-  console.log('🔖drawing list')
-  const newToDos = AppState.toDo
-  console.log('newToDo', newToDos)
-  let content = newToDos.drawListTemplate
-  document.getElementById('draw-list').innerHTML = content
-  console.log('list of todos', content)
-}
-
 export class ToDosController {
   constructor() {
     console.log('✅ to-dos')
-    AppState.on('user', _showCreateToDoForm)
-    AppState.on('toDo', this.createToDo)
-    _showCreateToDoForm()
-    // AppState.on('', _drawList)
+    // this.createToDos()
+    AppState.on('user', this.getToDos)
 
 
   }
 
-
-
-
-
-  async createToDo() {
+  async getToDos() {
     try {
-      event.preventDefault() //this works
-      console.log('createToDo') //this works
-      const form = event.target
-      const formData = getFormData(form)
-      console.log('in the form', formData) //this works- the ToDo value pops up in the console
-      await toDoService.createToDos(formData)
-      // @ts-ignore
-      form.reset()
-      // _drawList()
-    } catch (error) {
-      console.error(error)
-      Pop.error(error)
-    }
+      await toDoService.getToDos()
 
+    } catch (error) {
+      console.error(error) // log the error back
+      Pop.toast(error.message)
+    }
   }
 
-  async updateTodo() {
+  async createToDos() {
     try {
       event.preventDefault()
       const form = event.target
-      const FormData = getFormData(form)
-      await toDoService.updateToDo()
+      const formData = getFormData(form)
 
+      await toDoService.createToDos()
     } catch (error) {
-      console.error(error)
-      Pop.error(error)
+      console.error(error) // log the error back
+      Pop.toast(error.message)
     }
   }
+
 }
