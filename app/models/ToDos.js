@@ -11,8 +11,8 @@ export class ToDo {
   }
 
 
-
-
+  // TODO need checking boxes and changing styles (Spellbook, Sanbox card template)
+  // our template needs to look at the status of the todo, and a or not add to the template based on that status.
 
 
 

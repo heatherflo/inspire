@@ -20,8 +20,9 @@ class ObservableAppState extends EventEmitter {
   /**@type {Quotes} */
   quotes = null
 
-  /**@type {ToDo} */
-  activeToDo = null
+  // REVIEW the [] at the end of the type, tells our appstate this is a collection of that type, so there will be many todos
+  /**@type {ToDo[]} */
+  activeToDo = []
 
 
 

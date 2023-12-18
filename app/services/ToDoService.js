@@ -8,10 +8,11 @@ class ToDosService {
 
   async createToDos(formData) {
     const response = await api.post('api/todos', formData)
-    console.log('posting todos', response.data)
-    // const newToDos = new ToDo(response.data)
+    console.log('posting todos', response)
+    const newToDos = new ToDo(response.data)
     // AppState.activeToDo = newToDos
-    // console.log('new ToDo', newToDos)
+    console.log('new ToDo', newToDos)
+    AppState.activeToDo.push(formData)
   }
 
   //this works fine- getting todos to load into console 
@@ -21,6 +22,7 @@ class ToDosService {
     const toDos = response.data.map(todo => new ToDo(todo))
     AppState.activeToDo = toDos
     console.log('active todos', toDos)
+    // FIXME can we draw them to the page
   }
 }
 
