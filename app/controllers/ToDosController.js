@@ -6,6 +6,21 @@ import { toDoService } from "../services/ToDoService.js"
 import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 
+function _drawTodos() {
+  console.log('did this draw?') //this works
+  const todos = AppState.activeToDo
+  let content = ''
+  todos.forEach(todo => content += todo.activeTodoListTemplate)
+  document.getElementById('active-list').innerHTML = content
+}
+
+function _showCreateListForm() {
+  if (AppState.user) {
+    let form = document.getElementById('show-todo-form')
+    form.classList.remove('d-none')
+  }
+}
+
 // TODO we get todos fine, but need to draw them
 
 // TODO draw the count of UNCOMPLETED todos
@@ -14,9 +29,10 @@ import { Pop } from "../utils/Pop.js"
 export class ToDosController {
   constructor() {
     console.log('✅ to-dos')
-
-    AppState.on('account', this.getToDos)
-
+    AppState.on('activeToDo', _drawTodos)
+    AppState.on('user', _showCreateListForm)
+    AppState.on('user', this.getToDos)
+    AppState.on('user', _drawTodos)
 
 
   }
@@ -26,7 +42,7 @@ export class ToDosController {
       await toDoService.getToDos()
 
     } catch (error) {
-      console.error(error) // log the error back
+      console.error(error)
       Pop.toast(error.message)
     }
   }
@@ -40,18 +56,28 @@ export class ToDosController {
       await toDoService.createToDos(formData)
       // @ts-ignore
       form.reset()
+      _drawTodos()
     } catch (error) {
       console.error(error)
       Pop.toast(error.message)
     }
   }
 
-  // TODO Delete todos, (Gregslist delete car)
-  // This needs to be a button on the todo itself, when clicked, it can pass the todo's id down, and our service can send a delete request
+  async deleteTodo(todoId) {
+    let isConfirmed = await Pop.confirm("Uh Oh! You sure?", 'OK!', 'delete')
+    if (isConfirmed) {
+      toDoService.deleteTodo(todoId)
 
-
-  //TODO Complete a todo (Spellbook Prepare Spell)
-  // Similar to the delete, you can pass the todo's id when someone clicks on the check box, but in the service, we will have to get that todo back using that id, change it's status and update the API
-
-
+    }
+  }
 }
+
+// TODO Delete todos, (Gregslist delete car)
+// This needs to be a button on the todo itself, when clicked, it can pass the todo's id down, and our service can send a delete request
+
+
+//TODO Complete a todo (Spellbook Prepare Spell)
+// Similar to the delete, you can pass the todo's id when someone clicks on the check box, but in the service, we will have to get that todo back using that id, change it's status and update the API
+
+
+

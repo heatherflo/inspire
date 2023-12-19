@@ -10,6 +10,25 @@ export class ToDo {
     this.checked = data.checked ? false : true //if checked then marked as done and will disappear? or if checked then delete button pops up?
   }
 
+  get activeTodoListTemplate() {
+    return `
+  <div class="d-flex">
+    <span>
+      <div class=" mb-4">
+      <form>
+        <input class="form-check-input" type="checkbox" name="checked">
+        <label class="form-check-label" for="checkbox"></label>
+      </form>
+
+      <span class="header fs-4 text-white" >${this.description}</span>
+      <span class="p-2  ">
+        <button onclick="app.ToDosController.deleteTodo('${this.id}')" class="border border-white rounded header">delete</button>
+      </span>
+      </div>
+    </span>
+   </div>
+  </div>`
+  }
 
   // TODO need checking boxes and changing styles (Spellbook, Sanbox card template)
   // our template needs to look at the status of the todo, and a or not add to the template based on that status.

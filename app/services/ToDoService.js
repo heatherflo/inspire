@@ -1,6 +1,7 @@
 
 import { AppState } from "../AppState.js"
 import { ToDo } from "../models/ToDos.js"
+import { Pop } from "../utils/Pop.js"
 import { api } from "./AxiosService.js"
 
 class ToDosService {
@@ -22,7 +23,14 @@ class ToDosService {
     const toDos = response.data.map(todo => new ToDo(todo))
     AppState.activeToDo = toDos
     console.log('active todos', toDos)
+
     // FIXME can we draw them to the page
+  }
+
+  async deleteTodo(toDoId) {
+    const response = await api.delete(`api/todos/${toDoId}`)
+    const indexToRemove = AppState.activeToDo.findIndex(todo => todo.id == toDoId)
+    AppState.activeToDo.splice(indexToRemove, 1)
   }
 }
 
