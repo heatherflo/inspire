@@ -29,10 +29,10 @@ function _showCreateListForm() {
 export class ToDosController {
   constructor() {
     console.log('✅ to-dos')
-    AppState.on('activeToDo', _drawTodos)
-    AppState.on('user', _showCreateListForm)
-    AppState.on('user', this.getToDos)
-    AppState.on('user', _drawTodos)
+    AppState.on('user', _showCreateListForm)//showing form from the beginning when a user is logged in
+    AppState.on('user', _drawTodos) //checks the user is logged in and draws the todos
+    AppState.on('user', this.getToDos) //checks if user is logged in and gets todos
+    AppState.on('activeToDo', _drawTodos) //checks the todos and then draws the todos 
 
 
   }
@@ -40,6 +40,16 @@ export class ToDosController {
   async getToDos() {
     try {
       await toDoService.getToDos()
+
+    } catch (error) {
+      console.error(error)
+      Pop.toast(error.message)
+    }
+  }
+
+  async markCompleteTodo(todoId) {
+    try {
+      await toDoService.markCompleteTodo(todoId)
 
     } catch (error) {
       console.error(error)

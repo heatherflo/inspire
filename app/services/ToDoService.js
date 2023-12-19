@@ -32,6 +32,13 @@ class ToDosService {
     const indexToRemove = AppState.activeToDo.findIndex(todo => todo.id == toDoId)
     AppState.activeToDo.splice(indexToRemove, 1)
   }
+
+  async markCompleteTodo(toDoId) {
+    const response = await api.put(`api/todos/${toDoId}`)
+    const markComplete = AppState.activeToDo.find(todo => todo.id == toDoId)
+    markComplete ? toDoId == true : toDoId == false
+
+  }
 }
 
 
